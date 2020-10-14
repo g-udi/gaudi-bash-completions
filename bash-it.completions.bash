@@ -33,7 +33,7 @@ _bash-it-comp-list-enabled () {
 
   enabled_things=$(for f in $(sort -d <(compgen -G "${BASH_IT}/components/enabled/*.${suffix}.bash") <(compgen -G "${BASH_IT}/components/enabled/*.${suffix}.bash"));
     do
-      basename "$f" | sed -e 's/\(.*\)\..*\.bash/\1/g' | sed -e "s/^[0-9]*---//g"
+      basename "$f" | sed -e 's/\(.*\)\..*\.bash/\1/g' | sed -e "s/^[0-9]*___//g"
     done)
 
   COMPREPLY=( $(compgen -W "all ${enabled_things}" -- ${cur}) )
