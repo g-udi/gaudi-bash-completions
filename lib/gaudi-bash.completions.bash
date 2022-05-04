@@ -57,7 +57,7 @@ _gaudi-bash-comp () {
   prev="${COMP_WORDS[COMP_CWORD-1]}"
   chose_opt="${COMP_WORDS[1]}"
   file_type="${COMP_WORDS[2]}"
-  opts="disable enable help migrate reload doctor search show update version"
+  opts="version help doctor reload restart search update backup restore disable enable show"
   case "${chose_opt}" in
     show)
       local show_args="aliases completions plugins"
