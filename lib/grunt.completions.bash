@@ -1,18 +1,7 @@
-#!/bin/bash
+# shellcheck shell=bash
 
-# grunt-cli
-# http://gruntjs.com/
-#
-# Copyright (c) 2012 Tyler Kellen, contributors
-# Licensed under the MIT license.
-# https://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
-
-# Usage:
-#
-# To enable bash <tab> completion for grunt, add the following line (minus the
-# leading #, which is the bash comment character) to your ~/.bashrc file:
-#
-# eval "$(grunt --completion=bash)"
+cite about-completion
+about-completion 'Grunt bash completions'
 
 # Search the current directory and all parent directories for a gruntfile.
 _grunt_gruntfile () {

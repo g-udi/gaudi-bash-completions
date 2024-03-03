@@ -1,8 +1,7 @@
+# shellcheck shell=bash
 
-
-# bash completion for go tool
-# https://github.com/posener/complete
-# https://pkg.go.dev/github.com/posener/complete?tab=doc
+cite about-completion
+about-completion 'Go bash completions'
 
 # Install gocomplete:
 # go get -u github.com/posener/complete/gocomplete

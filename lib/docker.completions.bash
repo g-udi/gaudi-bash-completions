@@ -1,4 +1,8 @@
 
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Docker bash completions'
 
 # Make sure docker is installed
 _command_exists docker || return

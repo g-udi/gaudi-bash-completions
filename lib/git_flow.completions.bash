@@ -1,4 +1,8 @@
-#!bash
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Gitflow bash completions'
+
 #
 # git-flow-completion
 # ===================

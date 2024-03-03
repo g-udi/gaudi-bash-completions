@@ -1,4 +1,8 @@
 
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Terraform bash completions'
 
 # Make sure terraform is installed
 _command_exists terraform || return

@@ -1,6 +1,7 @@
+# shellcheck shell=bash
 
-
-# helm (Kubernetes Package Manager) completion
+cite about-completion
+about-completion 'Helm (Kubernetes Package Manager) completions'
 
 if command -v helm &>/dev/null
 then

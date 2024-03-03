@@ -1,5 +1,7 @@
-# hub tab-completion script for bash.
-# This script complements the completion script that ships with git.
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Hub bash completions. This script complements the completion script that ships with git'
 
 # If there is no git tab completion, but we have the _completion loader try to load it
 if ! declare -F _git > /dev/null && declare -F _completion_loader > /dev/null; then

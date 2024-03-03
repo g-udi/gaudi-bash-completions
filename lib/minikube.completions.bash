@@ -1,6 +1,8 @@
 
+# shellcheck shell=bash
 
-# minikube (Local Kubernetes) completion
+cite about-completion
+about-completion 'Minikube (Local Kubernetes) completion'
 
 if command -v minikube &>/dev/null
 then

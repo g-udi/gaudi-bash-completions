@@ -1,5 +1,7 @@
-# Bash completion for Makefile
-# Loosely adapted from http://stackoverflow.com/a/38415982/1472048
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Makefile bash completions'
 
 _makecomplete () {
   COMPREPLY=()

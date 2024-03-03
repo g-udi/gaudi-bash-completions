@@ -1,18 +1,18 @@
-_gaudi-bash-comp-enable-disable () {
-  local enable_disable_args="alias completion plugin"
-  COMPREPLY=( $(compgen -W "${enable_disable_args}" -- ${cur}) )
-}
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Gaudi bash completions'
 
 _gaudi-bash-comp-list-available-not-enabled () {
   subdirectory="$1"
 
   local available_things
 
-  available_things=$(for f in $(compgen -G "${GAUDI_BASH}/components/$subdirectory/*.bash" | sort -d);
+  available_things=$(for f in $(compgen -G "${GAUDI_BASH}/components/$subdirectory/lib/*.bash" | sort -d);
     do
-      file_entity=$(basename $f)
-
-      local enabled_components=$(command ls "${GAUDI_BASH}/components/enabled/"[0-9]*$GAUDI_BASH_LOAD_PRIORITY_SEPARATOR$file_entity 2>/dev/null | head -1)
+      file_entity=$(basename "$f")
+      local enabled_components
+      enabled_components=$(command ls "${GAUDI_BASH}/components/enabled/"[0-9]*$GAUDI_BASH_LOAD_PRIORITY_SEPARATOR$file_entity 2>/dev/null | head -1)
 
       if [[ -z "$enabled_components" ]]
       then
@@ -20,21 +20,19 @@ _gaudi-bash-comp-list-available-not-enabled () {
       fi
     done)
 
-  COMPREPLY=( $(compgen -W "all ${available_things}" -- ${cur}) )
+  COMPREPLY=( $(compgen -W "all ${available_things}" -- ${CURRENT}) )
 }
 
 _gaudi-bash-comp-list-enabled () {
   local subdirectory="$1"
-  local suffix enabled_things
+  local enabled_things
 
-  suffix=$(echo "$subdirectory" | sed -e 's/plugins/plugin/g')
-
-  enabled_things=$(for f in $(sort -d <(compgen -G "${GAUDI_BASH}/components/enabled/*.${suffix}.bash") <(compgen -G "${GAUDI_BASH}/components/enabled/*.${suffix}.bash"));
+  enabled_things=$(for f in $(sort -d <(compgen -G "${GAUDI_BASH}/components/enabled/*.$subdirectory.bash") <(compgen -G "${GAUDI_BASH}/components/enabled/*.$subdirectory.bash"));
     do
       basename "$f" | sed -e 's/\(.*\)\..*\.bash/\1/g' | sed -e "s/^[0-9]*___//g"
     done)
 
-  COMPREPLY=( $(compgen -W "all ${enabled_things}" -- ${cur}) )
+  COMPREPLY=( $(compgen -W "all ${enabled_things}" -- ${CURRENT}) )
 }
 
 _gaudi-bash-comp-list-available () {
@@ -42,48 +40,52 @@ _gaudi-bash-comp-list-available () {
 
   local enabled_things
 
-  enabled_things=$(for f in $(compgen -G "${GAUDI_BASH}/components/$subdirectory/*.bash" | sort -d);
+  enabled_things=$(for f in $(compgen -G "${GAUDI_BASH}/components/$subdirectory/lib/*.bash" | sort -d);
     do
       basename $f | sed -e 's/\(.*\)\..*\.bash/\1/g'
     done)
 
-  COMPREPLY=( $(compgen -W "${enabled_things}" -- ${cur}) )
+  COMPREPLY=( $(compgen -W "${enabled_things}" -- ${CURRENT}) )
 }
 
 _gaudi-bash-comp () {
-  local cur prev opts
+  
+  local BASE_OPTIONS="show enable disable reload restart search update backup doctor help version"
+  local CURRENT PREVIOUS
+
   COMPREPLY=()
-  cur="${COMP_WORDS[COMP_CWORD]}"
-  prev="${COMP_WORDS[COMP_CWORD-1]}"
-  chose_opt="${COMP_WORDS[1]}"
+  CURRENT="${COMP_WORDS[COMP_CWORD]}"
+  PREVIOUS="${COMP_WORDS[COMP_CWORD - 1]}"
+  
+  verb="${COMP_WORDS[1]}"
   file_type="${COMP_WORDS[2]}"
-  opts="version help doctor reload restart search update backup restore disable enable show"
-  case "${chose_opt}" in
+  
+  case "${verb}" in
     show)
-      local show_args="aliases completions plugins"
-      COMPREPLY=( $(compgen -W "${show_args}" -- ${cur}) )
+			local show_args="aliases completions plugins"
+			COMPREPLY=( $(compgen -W "${show_args}" -- ${CURRENT}) )
       return 0
-      ;;
+			;;
     help)
-      if [[ x"${prev}" == x"aliases" ]]; then
+      if [[ x"${PREVIOUS}" == x"aliases" ]]; then
         _gaudi-bash-comp-list-available aliases
         return 0
       else
-        local help_args="aliases completions migrate plugins update"
-        COMPREPLY=( $(compgen -W "${help_args}" -- ${cur}) )
+        local help_args="aliases completions plugins"
+        COMPREPLY=( $(compgen -W "${help_args}" -- ${CURRENT}) )
         return 0
       fi
       ;;
     doctor)
       local doctor_args="errors warnings all"
-      COMPREPLY=( $(compgen -W "${doctor_args}" -- ${cur}) )
+      COMPREPLY=( $(compgen -W "${doctor_args}" -- ${CURRENT}) )
       return 0
       ;;
-    migrate | reload | search | update | version)
+     reload | search | update | version)
       return 0
       ;;
     enable | disable)
-      if [[ x"${chose_opt}" == x"enable" ]];then
+      if [[ x"${verb}" == x"enable" ]];then
         suffix="available-not-enabled"
       else
         suffix="enabled"
@@ -98,18 +100,19 @@ _gaudi-bash-comp () {
             return 0
             ;;
         completion)
-            _gaudi-bash-comp-list-${suffix} completion
+            _gaudi-bash-comp-list-${suffix} completions
             return 0
             ;;
         *)
-            _gaudi-bash-comp-enable-disable
+            local enable_disable_args="alias completion plugin"
+            COMPREPLY=( $(compgen -W "${enable_disable_args}" -- ${CURRENT}) )
             return 0
             ;;
       esac
       ;;
   esac
 
-  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+  COMPREPLY=( $(compgen -W "${BASE_OPTIONS}" -- ${CURRENT}) )
 
   return 0
 }

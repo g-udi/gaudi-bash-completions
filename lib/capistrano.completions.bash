@@ -1,11 +1,14 @@
 
-# Bash completion support for Capistrano.
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Bash completion support for Capistrano'
 
 export COMP_WORDBREAKS=${COMP_WORDBREAKS/\:/}
 
 _capcomplete () {
     if [[ -f Capfile ]]; then
-        recent=`ls -t .cap_tasks~ Capfile **/*.cap 2> /dev/null | head -n 1`
+        recent=$(ls -t .cap_tasks~ Capfile **/*.cap 2> /dev/null | head -n 1)
         if [[ $recent != '.cap_tasks~' ]]; then
             cap --version | grep 'Capistrano v2.' > /dev/null
             if [[ $? -eq 0 ]]; then
@@ -16,7 +19,7 @@ _capcomplete () {
               cap --all --tasks | cut -d " " -f 2 > .cap_tasks~
             fi
         fi
-        COMPREPLY=($(compgen -W "`cat .cap_tasks~`" -- ${COMP_WORDS[COMP_CWORD]}))
+        COMPREPLY=($(compgen -W "$(cat .cap_tasks~)" -- ${COMP_WORDS[COMP_CWORD]}))
         return 0
     fi
 }

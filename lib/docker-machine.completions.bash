@@ -1,4 +1,8 @@
-#
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Docker machine bash completions'
+
 # bash completion file for docker-machine commands
 #
 # This script provides completion of:

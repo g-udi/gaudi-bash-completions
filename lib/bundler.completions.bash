@@ -1,12 +1,7 @@
-#! bash
-# bash completion for the `bundle` command.
-#
-# Copyright (c) 2011-2017 Daniel Luz <dev at mernen dot com>.
-# Distributed under the MIT license.
-# http://mernen.com/projects/completion-ruby
-#
-# To use, source this file on bash:
-#   . completion-bundle
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Bash completion for the `bundle` command'
 
 __bundle () {
     local bundle_bin=("${_RUBY_COMMAND_PREFIX[@]}" "$1")

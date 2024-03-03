@@ -1,3 +1,8 @@
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Gradle bash completions'
+
 # Bash breaks words on : by default. Subproject tasks have ':'
 # Avoid inaccurate completions for subproject tasks
 COMP_WORDBREAKS=$(echo "$COMP_WORDBREAKS" | sed -e 's/://g')

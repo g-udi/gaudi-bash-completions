@@ -1,11 +1,7 @@
-#!/bin/bash
+# shellcheck shell=bash
 
-# ---------------------------------------------------------------------------+
-#                                                                            |
-# Thanks to Alexander Korznikov                                                                 |
-# http://www.korznikov.com/2014/12/bash-tab-completion-for-awesome-tool.html |
-#                                                                            |
-# ---------------------------------------------------------------------------+
+cite about-completion
+about-completion 'SQL Map bash completions'
 
 if command -v sqlmap > /dev/null; then
 

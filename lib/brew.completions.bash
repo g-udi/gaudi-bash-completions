@@ -1,7 +1,11 @@
 
+# shellcheck shell=bash
+
+cite about-completion priority
+about-completion 'Brew completions'
 
 # Load late to make sure `system` completion loads first
-# BASH_IT_LOAD_PRIORITY: 375
+priority "375"
 
 if [[ "$(uname -s)" != 'Darwin' ]] ; then
   _log_warning "unsupported operating system - only 'Darwin' is supported"

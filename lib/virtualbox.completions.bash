@@ -1,4 +1,8 @@
-#!/usr/bin/bash
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Virtualbox completions'
+
 _vboxmanage_realopts () {
     echo $(vboxmanage|grep -i vboxmanage|cut -d' ' -f2|grep '\['|tr -s '[\[\|\]\n' ' ')
     echo " "
@@ -78,17 +82,6 @@ __vboxmanage_controlvm () {
     echo "vrdeproperty vrdevideochannelquality setvideomodehint"
     echo "screenshotpng setcredentials teleport plugcpu unplugcpu"
     echo "cpuexecutioncap"
-
-# setlinkstate<1-N>
-# nic<1-N> null|nat|bridged|intnet|hostonly|generic
-#                                      [<devicename>] |
-                          # nictrace<1-N> on|off
-                          #   nictracefile<1-N> <filename>
-                          #   nicproperty<1-N> name=[value]
-                          #   natpf<1-N> [<rulename>],tcp|udp,[<hostip>],
-                          #                 <hostport>,[<guestip>],<guestport>
-                          #   natpf<1-N> delete <rulename>
-
 }
 
 __vboxmanage_default () {

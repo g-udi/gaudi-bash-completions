@@ -1,7 +1,7 @@
+# shellcheck shell=bash
 
-
-# Loads the system's Bash completion modules.
-# If Homebrew is installed (OS X), it's Bash completion modules are loaded.
+cite about-completion
+about-completion 'Loads the systems Bash completion modules'
 
 if [[ -r /etc/bash_completion ]] ; then
   # shellcheck disable=SC1091

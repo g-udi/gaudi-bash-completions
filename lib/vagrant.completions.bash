@@ -1,27 +1,7 @@
-#!/bin/bash
+# shellcheck shell=bash
 
-# (The MIT License)
-#
-# Copyright (c) 2014 Kura
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the 'Software'), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
+cite about-completion
+about-completion 'Vagrant bash completions'
 
 __pwdln () {
    pwdmod="${PWD}/"
@@ -34,14 +14,14 @@ __pwdln () {
 }
 
 __vagrantinvestigate () {
-    if [[ -f "${PWD}/.vagrant" -o -d "${PWD}/.vagrant" ]];then
+    if [[ -f "${PWD}/.vagrant" || -d "${PWD}/.vagrant" ]];then
       echo "${PWD}/.vagrant"
       return 0
    else
       pwdmod2="${PWD}"
       for (( i=2; i<=$(__pwdln); i++ ));do
          pwdmod2="${pwdmod2%/*}"
-         if [[ -f "${pwdmod2}/.vagrant" -o -d "${pwdmod2}/.vagrant" ]];then
+         if [[ -f "${pwdmod2}/.vagrant" || -d "${pwdmod2}/.vagrant" ]];then
             echo "${pwdmod2}/.vagrant"
             return 0
          fi

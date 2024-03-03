@@ -1,7 +1,7 @@
+# shellcheck shell=bash
 
-
-# npm (Node Package Manager) completion
-# https://docs.npmjs.com/cli/completion
+cite about-completion
+about-completion 'NPM (Node Package Manager) completion'
 
 if command -v npm &>/dev/null
 then

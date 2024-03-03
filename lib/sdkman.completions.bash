@@ -1,3 +1,8 @@
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Sdkman bash completions'
+
 _sdkman_complete () {
   local CANDIDATES
   local CANDIDATE_VERSIONS

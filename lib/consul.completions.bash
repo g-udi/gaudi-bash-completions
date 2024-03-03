@@ -1,4 +1,7 @@
-# bash completion support for Hashicorp consul
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Consul bash completions'
 
 CONSUL_BIN=$(command -v consul 2>/dev/null)
 

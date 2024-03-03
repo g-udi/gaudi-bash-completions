@@ -1,4 +1,8 @@
 
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'asdf completions | The multiple runtime version manager'
 
 _asdf () {
   local cur

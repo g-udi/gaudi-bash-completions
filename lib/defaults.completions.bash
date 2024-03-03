@@ -1,10 +1,7 @@
-# defaults
-# Bash command line completion for defaults
-#
-# Created by Jonathon Mah on 2006-11-08.
-# Copyright 2006 Playhaus. All rights reserved.
-#
-# Version 1.0 (2006-11-08)
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Bash command line completion for defaults'
 
 
 _defaults_domains () {

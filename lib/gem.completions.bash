@@ -1,5 +1,8 @@
 
-# Completion for gem
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Gem bash completions'
 
 _installcomp () {
   if [[ -z "$REMOTE_GEMS" ]]

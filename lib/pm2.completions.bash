@@ -1,8 +1,7 @@
-###-begin-pm2-completion-###
-### credits to npm for the completion file model
-#
-# Installation: pm2 completion >> ~/.bashrc  (or ~/.zshrc)
-#
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'PM2 bash completions'
 
 COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
 COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}

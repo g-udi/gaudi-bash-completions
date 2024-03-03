@@ -1,5 +1,9 @@
 
-#
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Fabric bash completions'
+
 # Bash completion support for Fabric (http://fabfile.org/)
 #
 #

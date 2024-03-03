@@ -1,10 +1,7 @@
-# ---------------------------------------------------------------------------
-# vault-bash-completion
-#
-# This adds bash completions for [HashiCorp Vault](https://www.vaultproject.io/)
-#
-# see https://github.com/iljaweis/vault-bash-completion
-# ---------------------------------------------------------------------------
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Vault bash completion'
 
 _vault_mounts () {
   (

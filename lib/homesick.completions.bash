@@ -1,7 +1,7 @@
-# Bash completion script for homesick
-#
-# The homebrew bash completion script was used as inspiration.
-# Originally from https://github.com/liborw/homesick-completion
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Homesick bash completions'
 
 _homesick_complete () {
     local cur="${COMP_WORDS[COMP_CWORD]}"
@@ -25,7 +25,7 @@ _homesick_complete () {
 
     # Find the number of non-"--" commands
     local num=0
-    for word in ${COMP_WORDS[@]}
+    for word in "${COMP_WORDS[@]}"
     do
         if [[ $word != -* ]]; then
             num=$((++num))

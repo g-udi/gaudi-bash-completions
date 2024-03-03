@@ -1,5 +1,6 @@
+# shellcheck shell=bash
 
-# Bash completion support for  RVM.
-# Source: https://rvm.io/workflow/completion
+cite about-completion
+about-completion 'Bash completion support for RVM'
 
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion

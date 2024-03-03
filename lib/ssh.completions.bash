@@ -1,5 +1,8 @@
 
-# Bash completion support for ssh.
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Bash completion support for SSH'
 
 export COMP_WORDBREAKS=${COMP_WORDBREAKS/\:/}
 

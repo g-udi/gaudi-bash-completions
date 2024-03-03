@@ -1,9 +1,7 @@
+# shellcheck shell=bash
 
-
-# tmux completion
-# See: http://www.debian-administration.org/articles/317 for how to write more.
-# Usage: Put "source bash_completion_tmux.sh" into your .bashrc
-# Based upon the example at http://paste-it.appspot.com/Pj4mLycDE
+cite about-completion
+about-completion 'Tmux bash completions'
 
 _tmux_expand () {
     [[ "$cur" != "${cur%\\}" ]] && cur="$cur"'\';

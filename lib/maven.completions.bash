@@ -1,5 +1,8 @@
 
-# Bash Maven completion
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Maven bash completions'
 
 _mvn () {
    local cmds cur colonprefixes

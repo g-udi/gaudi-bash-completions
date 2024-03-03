@@ -1,5 +1,8 @@
-#!/bin/bash
-#
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Dokcer compose bash completions'
+
 # bash completion for docker-compose
 #
 # This work is based on the completion for the docker command.

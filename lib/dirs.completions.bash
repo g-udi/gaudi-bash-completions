@@ -1,5 +1,8 @@
 
-# Bash completion support for the 'dirs' plugin (commands G, R).
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Bash completion support for the 'dirs' plugin (commands G, R).'
 
 _dirs-complete () {
     local CURRENT_PROMPT="${COMP_WORDS[COMP_CWORD]}"

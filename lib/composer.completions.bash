@@ -1,5 +1,10 @@
 
 
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Composer completion'
+
 _composer () {
     local cur script coms opts com
     COMPREPLY=()
@@ -13,7 +18,7 @@ _composer () {
     fi
 
     # lookup for command
-    for word in ${words[@]:1}; do
+    for word in "${words[@]:1}"; do
         if [[ $word != -* ]]; then
             com=$word
             break

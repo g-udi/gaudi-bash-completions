@@ -1,37 +1,8 @@
+# shellcheck shell=bash
 
+cite about-completion
+about-completion 'Packer bash completions'
 
-# Packer (http://www.packer.io) bash completion
-#
-# This script provides bash completion for packer and supports:
-#
-# - template filename completion (*.json) in cwd
-# - support for basic options (i.e.. -debug)
-# - support for complex options (i.e. -parallel=[true|false]
-#
-# The scirpt has been successfully tested with packer-0.6.0 and the
-# following OS:
-#
-# - OS X 10.9
-# - CentOS-6.5
-# - Ubuntu 12.04 Server
-#
-# The script technically is heavily inspired by the git-completion.bash
-# script. Kudos to Shawn O. Pearce <spearce@spearce.org> and all other
-# contributors for the inspiration and especially to the bash-completion
-# team in general.
-#
-# Copyright (c) 2014 IT Services Department, University of Bern
-#
-# This script is licensed under the MIT License (MIT)
-# For licsense details see the LICENSE file included in the repository
-# or read the license text at http://opensource.org/licenses/MIT.
-#
-
-# Generates completion reply, appending a space to possible completion words,
-# if necessary.
-# It accepts 2 arguments though the second is optional:
-# 1: List of possible completion words.
-# 2: Generate possible completion matches for this word (optional).
 __packercomp () {
     local cur_="${2-$cur}"
 

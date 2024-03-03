@@ -1,5 +1,8 @@
-#!/bin/bash
-# Lerna autocompletion.
+# shellcheck shell=bash
+
+cite about-completion
+about-completion 'Lerna bash completions'
+
 _lerna_completions () {
   local cur compls
 

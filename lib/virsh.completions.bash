@@ -1,10 +1,7 @@
+# shellcheck shell=bash
 
-# bash completion for virsh - main CLI of libvirt
-
-# This script provides bash completion for virsh,
-# borrowed from https://github.com/LuyaoHuang/virsh-bash-completion
-
-
+cite about-completion
+about-completion 'Bash completion for virsh - main CLI of libvirt borrowed from https://github.com/LuyaoHuang/virsh-bash-completion'
 
 _contain_cmd () {
     local e f
