@@ -1,6 +1,6 @@
 # gaudi-bash completions
 
-This repo contains a submodule for [gaudi-bash](https://github.com/g-udi/gaudi-bash) with all the plugins it loads.
+This repo contains a submodule for [gaudi-bash](https://github.com/g-udi/gaudi-bash) with all the completions it loads.
 
 The completions can make use of the [helper functions](https://github.com/g-udi/gaudi-bash/blob/master/lib/helpers/utils.bash) of gaudi-bash:
 - `_is_function`: check if the passed parameter is a function
@@ -41,6 +41,7 @@ about-completion 'Automatic completion of aliases'
 - **[docker-compose](/lib/docker-compose.completions.bash)**: Dokcer compose bash completions
 - **[docker-machine](/lib/docker-machine.completions.bash)**: Docker machine bash completions
 - **[docker](/lib/docker.completions.bash)**: Docker bash completions
+- **[dotnet](/lib/dotnet.completions.bash)**: bash parameter completion for the dotnet CLI
 - **[export](/lib/export.completions.bash)**: Export bash completions
 - **[fabric](/lib/fabric.completions.bash)**: Fabric bash completions
 - **[flutter](/lib/flutter.completions.bash)**: Flutter bash completions
@@ -57,6 +58,7 @@ about-completion 'Automatic completion of aliases'
 - **[helm](/lib/helm.completions.bash)**: Helm (Kubernetes Package Manager) completions
 - **[homesick](/lib/homesick.completions.bash)**: Homesick bash completions
 - **[hub](/lib/hub.completions.bash)**: Hub bash completions. This script complements the completion script that ships with git
+- **[kind](/lib/kind.completions.bash)**: kind (Kubernetes IN Docker) completion
 - **[kubectl](/lib/kubectl.completions.bash)**: Kubectl (Kubernetes CLI) completion
 - **[lerna](/lib/lerna.completions.bash)**: Lerna bash completions
 - **[makefile](/lib/makefile.completions.bash)**: Makefile bash completions
