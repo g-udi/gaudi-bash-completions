@@ -38,7 +38,7 @@ about-completion 'Automatic completion of aliases'
 - **[consul](/lib/consul.completions.bash)**: Consul bash completions
 - **[defaults](/lib/defaults.completions.bash)**: Bash command line completion for defaults
 - **[dirs](/lib/dirs.completions.bash)**: Bash completion support for the 'dirs' plugin (commands G, R).
-- **[docker-compose](/lib/docker-compose.completions.bash)**: Dokcer compose bash completions
+- **[docker-compose](/lib/docker-compose.completions.bash)**: Docker Compose bash completions
 - **[docker-machine](/lib/docker-machine.completions.bash)**: Docker machine bash completions
 - **[docker](/lib/docker.completions.bash)**: Docker bash completions
 - **[dotnet](/lib/dotnet.completions.bash)**: bash parameter completion for the dotnet CLI
