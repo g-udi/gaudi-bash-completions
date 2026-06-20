@@ -4,7 +4,7 @@
 cite about-completion
 about-completion 'Minikube (Local Kubernetes) completion'
 
-if command -v minikube &>/dev/null
-then
-  eval "$(minikube completion bash)"
+if _command_exists minikube && minikube_completion=$(minikube completion bash 2> /dev/null); then
+  eval "$minikube_completion"
 fi
+unset minikube_completion

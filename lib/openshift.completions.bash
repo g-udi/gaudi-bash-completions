@@ -3,4 +3,8 @@
 cite about-completion
 about-completion 'Openshift bash completions'
 
-_command_exists oc && source <(oc completion bash)
+if _command_exists oc && oc_completion=$(oc completion bash 2> /dev/null); then
+  # shellcheck source=/dev/null
+  source <(printf '%s\n' "$oc_completion")
+fi
+unset oc_completion

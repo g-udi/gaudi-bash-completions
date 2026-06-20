@@ -4,7 +4,7 @@
 cite about-completion
 about-completion 'Google Cloud bash completions'
 
-_command_exists gcloud || return
+_command_exists gcloud || return 0
 
 # if which gcloud >/dev/null 2>&1; then
 #   GOOGLE_SDK_ROOT=${GOOGLE_SDK_ROOT:-$(gcloud info --format="value(installation.sdk_root)")}

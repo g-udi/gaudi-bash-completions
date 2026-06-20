@@ -4,6 +4,9 @@
 cite about-completion
 about-completion 'asdf completions | The multiple runtime version manager'
 
+_command_exists asdf || return 0
+complete -p asdf &> /dev/null && return 0
+
 _asdf () {
   local cur
   cur=${COMP_WORDS[COMP_CWORD]}
