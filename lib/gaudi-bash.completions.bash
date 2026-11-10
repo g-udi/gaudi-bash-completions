@@ -117,6 +117,5 @@ _gaudi-bash-comp () {
   return 0
 }
 
-# Activate completion for gaudi-bash and its common misspellings
-complete -F _gaudi-bash-comp gaudi-bash
-complete -F _gaudi-bash-comp gudi-bash
+# Activate completion for the gbash command
+complete -F _gaudi-bash-comp gbash
