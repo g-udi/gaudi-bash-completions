@@ -58,4 +58,3 @@ _homesick_complete () {
 }
 
 complete -o bashdefault -o default -F _homesick_complete homesick
-

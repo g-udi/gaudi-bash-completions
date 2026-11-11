@@ -11,22 +11,11 @@ priority "325"
 # If Homebrew is installed (OS X), it's Bash completion modules are loaded.
 
 # Bash-completion is too large and complex to expect to handle unbound variables throughout the whole codebase.
-__gaudi_bash_homebrew_completion_available() {
-	if declare -F _homebrew-check > /dev/null; then
-		_homebrew-check
-		return
-	fi
-
-	command -v brew > /dev/null 2>&1 || return 1
-	GAUDI_BASH_HOMEBREW_PREFIX="${GAUDI_BASH_HOMEBREW_PREFIX:-$(brew --prefix 2> /dev/null)}"
-	[[ -n "${GAUDI_BASH_HOMEBREW_PREFIX}" ]]
-}
-
 if shopt -qo nounset; then
-	__gaudi_bash_restore_nounset=true
+	__gaudi_restore_nounset=true
 	shopt -uo nounset
 else
-	__gaudi_bash_restore_nounset=false
+	__gaudi_restore_nounset=false
 fi
 
 if [[ -r "${BASH_COMPLETION:-}" ]]; then
@@ -36,15 +25,15 @@ elif [[ -r /etc/bash_completion ]]; then
 # Some distribution makes use of a profile.d script to import completion.
 elif [[ -r /etc/profile.d/bash_completion.sh ]]; then
 	source /etc/profile.d/bash_completion.sh
-elif __gaudi_bash_homebrew_completion_available; then
-	: "${BASH_COMPLETION_COMPAT_DIR:=${GAUDI_BASH_HOMEBREW_PREFIX}/etc/bash_completion.d}"
+elif _homebrew-check; then
+	: "${BASH_COMPLETION_COMPAT_DIR:=${GAUDI_HOST_HOMEBREW_PREFIX}/etc/bash_completion.d}"
 	case "${BASH_VERSION}" in
 		1* | 2* | 3.0* | 3.1*)
 			_log_warning "Cannot load completion due to version of shell. Are you using Bash 3.2+?"
 			;;
 		3.2* | 4.0* | 4.1*)
 			# Import version 1.x of bash-completion, if installed.
-			BASH_COMPLETION="${GAUDI_BASH_HOMEBREW_PREFIX}/opt/bash-completion@1/etc/bash_completion"
+			BASH_COMPLETION="${GAUDI_HOST_HOMEBREW_PREFIX}/opt/bash-completion@1/etc/bash_completion"
 			if [[ -r "$BASH_COMPLETION" ]]; then
 				source "$BASH_COMPLETION"
 			else
@@ -53,15 +42,14 @@ elif __gaudi_bash_homebrew_completion_available; then
 			;;
 		4.2* | 5* | *)
 			# homebrew/versions/bash-completion2 (required for projects.completion.bash) is installed to this path
-			if [[ -r "${GAUDI_BASH_HOMEBREW_PREFIX}/opt/bash-completion@2/etc/profile.d/bash_completion.sh" ]]; then
-				source "${GAUDI_BASH_HOMEBREW_PREFIX}/opt/bash-completion@2/etc/profile.d/bash_completion.sh"
+			if [[ -r "${GAUDI_HOST_HOMEBREW_PREFIX}/opt/bash-completion@2/etc/profile.d/bash_completion.sh" ]]; then
+				source "${GAUDI_HOST_HOMEBREW_PREFIX}/opt/bash-completion@2/etc/profile.d/bash_completion.sh"
 			fi
 			;;
 	esac
 fi
 
-if [[ ${__gaudi_bash_restore_nounset:-false} == "true" ]]; then
+if [[ ${__gaudi_restore_nounset:-false} == "true" ]]; then
 	shopt -so nounset
 fi
-unset __gaudi_bash_restore_nounset
-unset -f __gaudi_bash_homebrew_completion_available
+unset __gaudi_restore_nounset
