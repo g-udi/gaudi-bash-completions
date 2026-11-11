@@ -39,7 +39,6 @@ about-completion 'Gaudi bash completions'
 - **[defaults](/lib/defaults.completions.bash)**: Bash command line completion for defaults
 - **[dirs](/lib/dirs.completions.bash)**: Bash completion support for the 'dirs' plugin (commands G, R).
 - **[docker-compose](/lib/docker-compose.completions.bash)**: Docker Compose bash completions
-- **[docker-machine](/lib/docker-machine.completions.bash)**: Docker machine bash completions
 - **[docker](/lib/docker.completions.bash)**: Docker bash completions
 - **[dotnet](/lib/dotnet.completions.bash)**: bash parameter completion for the dotnet CLI
 - **[export](/lib/export.completions.bash)**: Export bash completions
@@ -57,7 +56,6 @@ about-completion 'Gaudi bash completions'
 - **[gulp](/lib/gulp.completions.bash)**: Gulp bash completions
 - **[helm](/lib/helm.completions.bash)**: Helm (Kubernetes Package Manager) completions
 - **[homesick](/lib/homesick.completions.bash)**: Homesick bash completions
-- **[hub](/lib/hub.completions.bash)**: Hub bash completions. This script complements the completion script that ships with git
 - **[kind](/lib/kind.completions.bash)**: kind (Kubernetes IN Docker) completion
 - **[kubectl](/lib/kubectl.completions.bash)**: Kubectl (Kubernetes CLI) completion
 - **[lerna](/lib/lerna.completions.bash)**: Lerna bash completions
@@ -68,6 +66,7 @@ about-completion 'Gaudi bash completions'
 - **[npm](/lib/npm.completions.bash)**: NPM (Node Package Manager) completion
 - **[nvm](/lib/nvm.completions.bash)**: NVM (Node Version Manager) bash completions
 - **[openshift](/lib/openshift.completions.bash)**: Openshift bash completions
+- **[pack](/lib/pack.completions.bash)**: pack (Cloud Native Buildpacks CLI) completion
 - **[packer](/lib/packer.completions.bash)**: Packer bash completions
 - **[pip](/lib/pip.completions.bash)**: Python pip package manager bash completions
 - **[pm2](/lib/pm2.completions.bash)**: PM2 bash completions

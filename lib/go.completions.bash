@@ -4,7 +4,7 @@ cite about-completion
 about-completion 'Go bash completions'
 
 # Install gocomplete:
-# go get -u github.com/posener/complete/gocomplete
+# go install github.com/posener/complete/gocomplete@latest
 # gocomplete -install
 
 if gocomplete_bin=$(command -v gocomplete) && _command_exists go ; then
