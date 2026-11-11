@@ -70,6 +70,9 @@ _gaudi-bash-comp () {
       if [[ x"${PREVIOUS}" == x"aliases" ]]; then
         _gaudi-bash-comp-list-available aliases
         return 0
+      elif [[ x"${PREVIOUS}" == x"plugins" ]]; then
+        _gaudi-bash-comp-list-available plugins
+        return 0
       else
         local help_args="aliases completions plugins"
         COMPREPLY=( $(compgen -W "${help_args}" -- ${CURRENT}) )
