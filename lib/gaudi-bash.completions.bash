@@ -4,9 +4,9 @@ cite about-completion
 about-completion 'Gaudi bash completions'
 
 _gaudi-bash-comp-list-available-not-enabled () {
-  subdirectory="$1"
+  local subdirectory="$1"
 
-  local available_things
+  local available_things file_entity
 
   available_things=$(for f in $(compgen -G "${GAUDI_BASH}/components/$subdirectory/lib/*.bash" | sort -d);
     do
@@ -27,7 +27,7 @@ _gaudi-bash-comp-list-enabled () {
   local subdirectory="$1"
   local enabled_things
 
-  enabled_things=$(for f in $(sort -d <(compgen -G "${GAUDI_BASH}/components/enabled/*.$subdirectory.bash") <(compgen -G "${GAUDI_BASH}/components/enabled/*.$subdirectory.bash"));
+  enabled_things=$(for f in $(compgen -G "${GAUDI_BASH}/components/enabled/*.$subdirectory.bash" | sort -d);
     do
       basename "$f" | sed -e 's/\(.*\)\..*\.bash/\1/g' | sed -e "s/^[0-9]*___//g"
     done)
@@ -36,7 +36,7 @@ _gaudi-bash-comp-list-enabled () {
 }
 
 _gaudi-bash-comp-list-available () {
-  subdirectory="$1"
+  local subdirectory="$1"
 
   local enabled_things
 
@@ -51,7 +51,7 @@ _gaudi-bash-comp-list-available () {
 _gaudi-bash-comp () {
   
   local BASE_OPTIONS="show enable disable reload restart search update backup restore profile doctor help version"
-  local CURRENT PREVIOUS
+  local CURRENT PREVIOUS verb file_type suffix
 
   COMPREPLY=()
   CURRENT="${COMP_WORDS[COMP_CWORD]}"
@@ -72,6 +72,9 @@ _gaudi-bash-comp () {
         return 0
       elif [[ x"${PREVIOUS}" == x"plugins" ]]; then
         _gaudi-bash-comp-list-available plugins
+        return 0
+      elif [[ x"${PREVIOUS}" == x"completions" ]]; then
+        _gaudi-bash-comp-list-available completions
         return 0
       else
         local help_args="aliases completions plugins"
