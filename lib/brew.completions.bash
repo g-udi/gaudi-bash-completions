@@ -8,6 +8,7 @@ about-completion 'Brew completions'
 priority "375"
 
 if [[ "$(uname -s)" != 'Darwin' ]]; then
+  _log_warning "unsupported operating system - only 'Darwin' is supported"
   return 0
 fi
 

@@ -12,7 +12,9 @@ _yarn_completion() {
 	local commands="add audit autoclean bin cache check config create generate-lock-entry global help import info init install licenses link list login logout node outdated owner pack policies publish remove run tag team test unlink unplug upgrade upgrade-interactive version versions why workspace workspaces"
 
 	if [[ ${COMP_CWORD} -eq 1 ]]; then
-		mapfile -t COMPREPLY < <(compgen -W "${commands}" -- "${cur}")
+		# No mapfile: this file also loads in bash 3.2
+		# shellcheck disable=SC2207
+		COMPREPLY=($(compgen -W "${commands}" -- "${cur}"))
 	fi
 }
 
