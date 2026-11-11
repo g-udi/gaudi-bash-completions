@@ -50,7 +50,7 @@ _gaudi-bash-comp-list-available () {
 
 _gaudi-bash-comp () {
   
-  local BASE_OPTIONS="show enable disable reload restart search update backup doctor help version"
+  local BASE_OPTIONS="show enable disable reload restart search update backup restore profile doctor help version"
   local CURRENT PREVIOUS
 
   COMPREPLY=()
