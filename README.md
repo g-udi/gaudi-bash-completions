@@ -2,7 +2,7 @@
 
 This repo contains a submodule for [gaudi-bash](https://github.com/g-udi/gaudi-bash) with all the completions it loads.
 
-The completions can make use of the [helper functions](https://github.com/g-udi/gaudi-bash/blob/master/lib/helpers/utils.bash) of gaudi-bash:
+The completions can make use of the [helper functions](https://github.com/g-udi/gaudi-bash/blob/main/lib/helpers/utils.bash) of gaudi-bash:
 - `_is_function`: check if the passed parameter is a function
 - `_command_exists`: check if the command passed as the argument exists
 - `_binary_exists`: check if the binary passed as the argument exists
@@ -15,14 +15,14 @@ The completions can make use of the [helper functions](https://github.com/g-udi/
 ## Checklist
 
 - [ ] Make sure to have `# shellcheck shell=bash` at the top of every file and have an empty newline after
-- [ ] Make sure to have the `cite about-plugin`
-- [ ] Make sure to fill in a description of the alias in the `about-plugin`
+- [ ] Make sure to have the `cite about-completion`
+- [ ] Make sure to fill in a description of the completion in the `about-completion`
 
  ```bash
 # shellcheck shell=bash
 
 cite about-completion
-about-completion 'Automatic completion of aliases'
+about-completion 'Gaudi bash completions'
  ```
 
 ## Completions
@@ -45,7 +45,7 @@ about-completion 'Automatic completion of aliases'
 - **[export](/lib/export.completions.bash)**: Export bash completions
 - **[fabric](/lib/fabric.completions.bash)**: Fabric bash completions
 - **[flutter](/lib/flutter.completions.bash)**: Flutter bash completions
-- **[gaudi-bash](/lib/gaudi-bash.completions.bash)**: Gaudi bash completions
+- **[gaudi-bash](/lib/gaudi-bash.completions.bash)**: Gaudi bash completions (completes the `gbash` command)
 - **[gcloud](/lib/gcloud.completions.bash)**: Google Cloud bash completions
 - **[gem](/lib/gem.completions.bash)**: Gem bash completions
 - **[git](/lib/git.completions.bash)**: Git bash completions
