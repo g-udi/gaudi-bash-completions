@@ -7,6 +7,7 @@ _makecomplete () {
   COMPREPLY=()
 
   # https://www.gnu.org/software/make/manual/html_node/Makefile-Names.html
+  local f line
   local files=()
   for f in 'GNUmakefile' 'makefile' 'Makefile' ; do
     [[ -f "$f" ]] && files+=("$f")

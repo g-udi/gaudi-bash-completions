@@ -1,4 +1,5 @@
 # shellcheck shell=bash
+
 cite about-completion
 about-completion "kind (Kubernetes IN Docker) completion"
 

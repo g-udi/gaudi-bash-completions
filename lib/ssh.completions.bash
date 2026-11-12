@@ -1,4 +1,3 @@
-
 # shellcheck shell=bash
 
 cite about-completion
@@ -6,7 +5,7 @@ about-completion 'Bash completion support for SSH'
 
 _sshcomplete () {
     # Take the current word with ":" kept, instead of removing ":" from the global COMP_WORDBREAKS
-    local CURRENT_PROMPT
+    local CURRENT_PROMPT fl
     if declare -F _get_comp_words_by_ref > /dev/null; then
         _get_comp_words_by_ref -n : -c CURRENT_PROMPT
     else
@@ -20,7 +19,7 @@ _sshcomplete () {
 
     # parse all defined hosts from .ssh/config and files included there
     for fl in "$HOME/.ssh/config" \
-        $(grep "^\s*Include" "$HOME/.ssh/config" |
+        $(grep "^\s*Include" "$HOME/.ssh/config" 2> /dev/null |
             awk '{for (i=2; i<=NF; i++) print $i}' |
             sed -Ee "s|^([^/~])|$HOME/.ssh/\1|" -e "s|^~/|$HOME/|")
     do

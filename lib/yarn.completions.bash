@@ -1,8 +1,10 @@
 # shellcheck shell=bash
+
 cite about-completion
 about-completion "yarn cli completions"
 
-_command_exists yarn || return 0
+# command -v: a function counts too (the nvm plugin's lazy-load stub)
+command -v yarn > /dev/null 2>&1 || return 0
 
 complete -p yarn &> /dev/null && return 0
 
