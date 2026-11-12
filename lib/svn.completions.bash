@@ -3,6 +3,9 @@
 cite about-completion
 about-completion 'SVN bash completions'
 
+# Bash only: the functions below use extglob patterns that zsh cannot parse
+[[ -n "${BASH_VERSION:-}" ]] || return 0
+
 # extglob is only needed while the functions below are parsed ([[ == @(...) ]]
 # always matches extended patterns at run time): it is restored at the end of the file
 shopt -q extglob && _svn_extglob_was_set=1

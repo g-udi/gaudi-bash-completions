@@ -1,12 +1,10 @@
 # shellcheck shell=bash
 # shellcheck disable=SC1090,SC1091
 
-cite about-completion
+cite about-completion priority
 about-completion 'Loads the systems Bash completion modules'
 priority "325"
 
-# shellcheck shell=bash
-#
 # Loads the system's Bash completion modules.
 # If Homebrew is installed (OS X), it's Bash completion modules are loaded.
 
@@ -41,7 +39,7 @@ elif _homebrew-check; then
 			fi
 			;;
 		4.2* | 5* | *)
-			# homebrew/versions/bash-completion2 (required for projects.completion.bash) is installed to this path
+			# Homebrew's bash-completion@2 is installed to this path
 			if [[ -r "${GAUDI_HOST_HOMEBREW_PREFIX}/opt/bash-completion@2/etc/profile.d/bash_completion.sh" ]]; then
 				source "${GAUDI_HOST_HOMEBREW_PREFIX}/opt/bash-completion@2/etc/profile.d/bash_completion.sh"
 			fi

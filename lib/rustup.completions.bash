@@ -1,4 +1,5 @@
 # shellcheck shell=bash
+
 cite about-completion
 about-completion "rustup (Rust toolchain installer) completion"
 

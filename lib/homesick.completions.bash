@@ -26,7 +26,7 @@ _homesick_complete () {
     done
 
     # Find the number of non-"--" commands
-    local num=0
+    local num=0 word
     for word in "${COMP_WORDS[@]}"
     do
         if [[ $word != -* ]]; then
@@ -48,7 +48,7 @@ _homesick_complete () {
     # Track command take file and repo
     track)
         if [[ "$num" -eq 2 ]]; then
-            COMPREPLY=( $(compgen -X -f ${cur}) )
+            COMPREPLY=( $(compgen -f -- "${cur}") )
         elif [[ "$num" -ge 3 ]]; then
             COMPREPLY=( $(compgen -W "${repos}" -- ${cur}) )
         fi
